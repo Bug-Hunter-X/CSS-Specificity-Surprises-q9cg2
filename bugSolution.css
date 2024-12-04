@@ -1,0 +1,23 @@
+To avoid the unexpected behavior due to specificity issues, you can use more explicit selectors or utilize the `!important` flag (though use it sparingly). 
+
+Here's a possible solution:
+
+```css
+div {
+  color: blue;
+}
+
+.my-class div {
+  color: red;
+}
+
+#my-id {
+  color: green;
+}
+
+#my-id.my-class {
+  color: purple !important; /*This ensures purple will be applied*/
+}
+```
+
+By using `!important` we are explicitly overriding all previous selectors.  Always be aware of the implications before using `!important` as it can lead to hard-to-debug specificity conflicts later on.  A better approach might be to refactor your CSS selectors for greater clarity and maintainability.
